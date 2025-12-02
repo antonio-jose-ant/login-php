@@ -1,0 +1,64 @@
+
+services:
+  # Apache
+  apache:
+    build:
+      context: ./apache
+      dockerfile: Dockerfile
+    container_name: apache_server
+    ports:
+      - "8000:80"
+    depends_on:
+      - app
+    volumes:
+      - ./backend:/var/www/html
+
+  # PHP (FPM)
+  app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: php_app
+    volumes:
+      - ./backend:/var/www/html
+      - /var/www/html/vendor
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - db
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+  # React (pnpm dev)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: react_fr
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    ports:
+      - "5173:5173"
+    command: [ "pnpm", "dev", "--host", "0.0.0.0" ]
+
+  # MySQL
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: loggin
+      MYSQL_USER: ecuela
+      MYSQL_PASSWORD: root99
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

@@ -1,0 +1,278 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #35403A;
+  background-color: #BFBFB8;
+  font-size: 16px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --Colorone: #BFBFB8;
+  --ColorTow: #A3A69C;
+  --ColorTree: #4D5950;
+  --colorFour: #35403A;
+  --ColorFive: #232625;
+  --pad: 5px;
+  --pad-sm: 10px;
+  --pad-md: 20px;
+  --pad-xl: 30px;
+  --m: 10px;
+  --m-sm: 20px;
+  --m-md: 30px;
+  --m-xl: 40px;
+  --fontZ-smal: 1vw;
+  --fontZ: 1vw;
+  --fontZ-sm: 1.5vw;
+  --fontZ-md: 2vw;
+  --fontZ-xl: 3vw;
+  --borderR: 5px;
+}
+
+a {
+  font-weight: 500;
+  color: var(--ColorTree);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--ColorTree);
+}
+
+/* Aplica solo a inputs válidos y textarea */
+input:not([type="file"]):not([type="button"]):not([type="radio"]):not([type="checkbox"]),
+textarea {
+  height: 42px;
+  padding: var(--pad);
+  background-color: var(--ColorTow);
+  border: solid 2px var(--ColorFive);
+  width: calc(100% - 2px);
+  position: relative;
+  font-size: var(--fontZ);
+  box-sizing: border-box;
+  z-index: 0;
+  border-radius: var(--borderR);
+  -webkit-border-radius: var(--borderR);
+  -moz-border-radius: var(--borderR);
+  -ms-border-radius: var(--borderR);
+  -o-border-radius: var(--borderR);
+  transition: border .4s;
+  -webkit-transition: border .4s;
+  -moz-transition: border .4s;
+  -ms-transition: border .4s;
+  -o-transition: border .4s;
+}
+
+input:focus,
+input:focus-visible {
+  outline: .5px solid transparent;
+}
+
+/* Estilo del label flotante generado */
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: var(--m) 0;
+  transition: font-size .4s, top .4s;
+}
+
+.input-wrapper>label {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  color: var(--ColorFive);
+  font-size: var(--fontZ-sm);
+  pointer-events: none;
+  z-index: 1;
+  transition: font-size .4s, top .4s;
+  -webkit-transition: font-size .4s, top .4s;
+  -moz-transition: font-size .4s, top .4s;
+  -ms-transition: font-size .4s, top .4s;
+  -o-transition: font-size .4s, top .4s;
+}
+
+.input-wrapper>label.clickled_label {
+  margin-left: 5px;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: var(--fontZ-smal);
+  width: auto;
+  /* el label ocupa solo su texto */
+  display: inline-block;
+}
+
+/* línea que ocupa el resto del contenedor */
+.input-wrapper>label.clickled_label>span {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  /* empieza justo donde termina el label */
+  transform: translateY(-50%);
+  height: 2px;
+  background-color: var(--ColorFive);
+  width: calc(100% - 100%);
+  /* valor base, ajustamos más abajo */
+  max-width: calc(100vw - var(--label-width, 120px));
+  /* límite opcional */
+  transition: width .4s;
+
+}
+
+
+.clickled_input {
+  border-top: none !important;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--ColorFive);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: var(--A3A69C);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/**
+* margin Configuracion INIT
+*/
+
+/**
+* margin Configuracion INIT
+*/
+
+
+/**
+* Grid Configuracion INIT
+*/
+.Grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.G-justify-content-center {
+  justify-content: center;
+}
+
+.colpanR-1 {
+  grid-row: span 1;
+}
+
+.colpanR-2 {
+  grid-row: span 2;
+}
+
+.colpanR-3 {
+  grid-row: span 3;
+}
+
+.colpanR-4 {
+  grid-row: span 4;
+}
+
+.colpanR-5 {
+  grid-row: span 5;
+}
+
+.colpanR-6 {
+  grid-row: span 6;
+}
+
+.colpanR-7 {
+  grid-row: span 7;
+}
+
+/**
+* Grid Configuracion END
+*/
+/**
+* flex Configuracion INIT
+*/
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.FlexDCol {
+  flex-direction: column;
+}
+
+.FlexDRow {
+  flex-direction: row;
+}
+
+/**
+* flex Configuracion END
+*/
+/**
+* width Configuracion INIT
+*/
+.w-100 {
+  width: 100%;
+}
+
+/**
+* whdth Configuracion END
+*/
+/**
+* height Configuracion INIT
+*/
+.h-100 {
+  height: 100%;
+}
+
+/**
+* height Configuracion END
+*/
+.color-1 {
+  color: var(--Colorone);
+}
+
+.color-2 {
+  color: var(--ColorTow);
+}
+
+.color-3 {
+  color: var(--ColorTree);
+}
+
+.color-4 {
+  color: var(--colorFour);
+}
+
+.color-5 {
+  color: var(--ColorFive);
+}

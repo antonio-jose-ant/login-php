@@ -1,0 +1,16 @@
+.login_distribucion {
+    grid-template: 100vh / 3fr 4fr;
+}
+.Form-Login{
+    width: 100%;
+    height: 100%;
+    padding: var(--pad-xl);
+    box-sizing: border-box;
+}
+.Image-Login {
+    background: var(--Colorone);
+    background: linear-gradient(0deg,var(--ColorFive) 0%, var(--colorFour) 30%, var(--ColorTow)  100%);
+    width: 100%;
+    height: 100%;
+    grid-template:calc(100% - 60px) 60px / 100%;
+}
