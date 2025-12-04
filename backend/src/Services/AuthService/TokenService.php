@@ -1,5 +1,5 @@
 <?php
-namespace App\Services;
+namespace App\Services\AuthService;
 class TokenService
 {
     public function createToken(): array

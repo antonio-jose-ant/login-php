@@ -1,0 +1,33 @@
+la estructura del proyecto es 
+
+backend
+    - public
+        - index.php
+    - src
+        - config
+        - Controlles
+            - AuthController.php
+            - SessionInit.php
+        - helpers
+            - DataHelper.php
+        - include
+            - displayErrors.php
+        - repositoires
+            - LoginAttemptRepository.php
+            - SessionRepository.php
+            - SessionRepositoryLogout.php
+            - UserRepository.php
+        - router
+            - Router.php
+        - routes
+            web.
+        - services
+            - AuthService
+                - AuthService.php
+                - IpResolver.php
+                - PasswordValidator.php
+                - ReposeServer.php
+                - TokenService.php
+forntend
+    - public
+    - src

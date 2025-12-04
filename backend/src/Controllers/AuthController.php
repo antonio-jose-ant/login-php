@@ -9,7 +9,7 @@ class AuthController
     {
         $this->usuario = $user;
         $this->contraseña = $pass;
-        $this->Services = new \App\services\AuthService($con);
+        $this->Services = new \App\services\AuthService\AuthService($con);
     }
     public function login()
     {

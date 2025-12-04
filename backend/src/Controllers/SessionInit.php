@@ -2,7 +2,7 @@
 namespace App\Controllers;
 use \App\controllers\AuthController;
 use App\Config\Database;
-
+use App\Services\AuthService\ReposeServer;
 class SessionInit
 {
     public function sessionVeryfy()
@@ -10,7 +10,7 @@ class SessionInit
         $con = new Database();
         $auth = new AuthController('', '', $con->getConnection());
         if (!$rs = $auth->Authorized()) {
-            header('Location: /php-crs');
+            (new ReposeServer())->error('Sin inicio de session',-1,401);
         }
         return $rs;
     }

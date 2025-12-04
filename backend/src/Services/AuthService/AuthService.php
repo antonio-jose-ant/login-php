@@ -1,13 +1,13 @@
 <?php
-namespace App\Services;
+namespace App\Services\AuthService;
 use App\Repositories\UserRepository;
 use App\Repositories\LoginAttemptRepository;
 use App\Repositories\SessionRepository;
 use App\Repositories\SessionRepositoryLogout;
-use App\Services\IpResolver;
-use App\Services\PasswordValidator;
-use App\Services\TokenService;
-use App\Services\ReposeServer;
+use App\Services\AuthService\IpResolver;
+use App\Services\AuthService\PasswordValidator;
+use App\Services\AuthService\TokenService;
+use App\Services\AuthService\ReposeServer;
 class AuthService
 {
     private $users;
@@ -35,23 +35,25 @@ class AuthService
         $ip = $this->ipResolve->obtenerIP();
         if (!$logValidaUser) {
             $this->logs->registrarIntento($user, $ip, $ua, 'fail', 'No existe usuario');
-            $this->rs->error("Usuario y/o contraseña incorrecto use", -9);
+            $this->rs->error("Usuario y/o contraseña incorrecto", -11,200);
         }
         $hashBD = $logValidaUser['password_hash'];
         // 2. Validar contraseña
         if (empty($user)) {
-            $this->rs->error("Parametro usuario vacio", -10);
+            $this->rs->error("Parametro usuario vacio", -10,200);
+
         }
         if (empty($pass)) {
-            $this->rs->error("Parametro Contraseña vacio", -10);
+            $this->rs->error("Parametro Contraseña vacio", -10,200);
+
         }
         if (!password_verify($pass, $hashBD)) {
             $this->logs->registrarIntento($user, $ip, $ua, 'fail', 'Contraseña Incorecta');
-            $this->rs->error("Usuario y/o contraseña incorrecto pas", -11);
+            $this->rs->error("Usuario y/o contraseña incorrecto", -11,200);
         }
         $this->logs->registrarIntento($user, $ip, $ua, 'success', '');
         $this->createSession($logValidaUser['id'], $ip, $ua);
-        $this->rs->success("ok", 1);
+        $this->rs->success(null, 1);
     }
     public function exit($token)
     {
@@ -68,7 +70,7 @@ class AuthService
             'domain' => '',
             'secure' => true,
             'httponly' => true,
-            'samesite' => 'Strict'
+            'samesite' => 'Lax'
         ]);
         $_SESSION = [];                    // limpiar variables internas
         if (ini_get("session.use_cookies")) {
@@ -132,7 +134,7 @@ class AuthService
             'expires' => $expires->getTimestamp(),
             'path' => '/',
             'domain' => '',
-            'secure' => true,
+            'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
             'httponly' => true,
             'samesite' => 'Strict'
         ]);

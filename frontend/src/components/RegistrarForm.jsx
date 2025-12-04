@@ -80,9 +80,6 @@ export default function LoginForm() {
           <button type="submit" className="w-100">
             Entrar
           </button>
-          <div>
-            <a href="">Registrar</a>
-          </div>
         </form>
         {message && <p className="message">{message}</p>}
       </div>

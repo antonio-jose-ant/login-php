@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>tipo de ataque</th>
+                <th>Tarea</th>
+                <th>Descripción de la Prueba</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Fuerza Bruta
+                </td>
+                <td>
+                    Test: Bloqueo de Cuentas por Fallo
+                </td>
+                <td>
+                    Validar: El sistema bloquea al usuario o introduce CAPTCHA después de N intentos fallidos (e.g., 5
+                    veces) en un periodo de tiempo.
+                </td>
+                <td>
+                    <input type="checkbox" name="" id="" checked>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fuerza Bruta
+                </td>
+                <td>
+                    Test: Contraseñas Débiles/Comunes
+                </td>
+                <td>
+                    Verificar: El sistema rechaza contraseñas incluidas en listas negras o muy comunes.
+                </td>
+                <td>
+                    <input type="checkbox" name="" id="" checked>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Inyección SQL
+                </td>
+                <td>
+                    Test: Inyección en Campos (SQLi)
+                </td>
+                <td>
+                    Probar: Ingresar caracteres especiales (', --, OR 1=1) en los campos de usuario y contraseña para
+                    ver si se produce un error de base de datos o acceso no autorizado.
+                </td>
+                <td>
+                    <input type="checkbox" name="" id="" checked>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ataque de Tiempos
+                </td>
+                <td>
+                    Test: Mensajes de Error Genéricos
+                </td>
+                <td>
+                    Asegurar: El mensaje de error es siempre el mismo ("Credenciales Inválidas") tanto para un usuario
+                    inexistente como para una contraseña incorrecta.
+                </td>
+                <td>
+                    <input type="checkbox" name="" id="" checked>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ataque de Tiempos
+                </td>
+                <td>
+                    Test: Detección de Usuario (Enumeración)
+                </td>
+                <td>
+                    Evaluar: No debe haber diferencia notable en el tiempo de respuesta o en los mensajes de error que
+                    permita adivinar si un nombre de usuario existe o no.
+                </td>
+                <td>
+                    <input type="checkbox" name="" id="" checked>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Sesión
+                </td>
+                <td>
+                    Test: Regeneración de ID de Sesión
+                </td>
+                <td>
+                    Verificar: Después de un inicio de sesión exitoso, el ID de sesión del usuario debe cambiar.
+                </td>
+                <td>
+                    <input type="checkbox" name="" id="" checked>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Sesión
+                </td>
+                <td>
+                    Test: Inactividad de Sesión (Timeout)
+                </td>
+                <td>
+                    Validar: La sesión de un usuario expira automáticamente después de un período de inactividad (e.g.,
+                    15 minutos) y requiere volver a autenticar.
+                </td>
+                <td>
+                    <input type="checkbox" name="" id="" checked>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Hashing
+                </td>
+                <td>
+                    Test: Almacenamiento Seguro de Passwords
+                </td>
+                <td>
+                    Confirmar: Las contraseñas se almacenan con algoritmos de hashing fuerte y salted (como Argon2 o
+                    bcrypt), no en texto plano ni con MD5.
+                </td>
+                <td>
+                    <input type="checkbox" name="" id="" checked>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Seguridad de Capa
+                </td>
+                <td>
+                    Test: Uso de Autenticación de Dos Factores (2FA)
+                </td>
+                <td>
+                    Verificar: La opción de 2FA está disponible y funciona correctamente como una segunda capa de
+                    seguridad.
+                </td>
+                <td>
+                    <input type="checkbox" name="" id="" checked>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Seguridad de Capa
+                </td>
+                <td>
+                    Test: Uso de HTTPS/SSL
+                </td>
+                <td>
+                    Asegurar: Todas las comunicaciones del login utilizan cifrado HTTPS para proteger las credenciales
+                    en tránsito.
+                </td>
+                <td>
+                    <input type="checkbox" name="" id="" checked>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
